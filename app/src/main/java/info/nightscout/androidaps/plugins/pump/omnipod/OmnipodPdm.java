@@ -438,7 +438,7 @@ class HistoryProcessor extends AsyncTask<OmniCoreResult,Void,Void>
                         detailedBolusInfo.insulin = p1.ImmediateUnits.doubleValue();
                         detailedBolusInfo.isSMB = false;
                         detailedBolusInfo.date = historicalResult.ResultDate;
-                        detailedBolusInfo.source = Source.PUMP;
+                        detailedBolusInfo.source = Source.USER;
                         treatmentsPlugin.addToHistoryTreatment(detailedBolusInfo, true);
                         cancelBolusCandidate = detailedBolusInfo;
                     } else {
@@ -470,7 +470,7 @@ class HistoryProcessor extends AsyncTask<OmniCoreResult,Void,Void>
                                 .absolute(basalRate)
                                 .duration(minutes)
                                 .pumpId(historicalResult.ResultId)
-                                .source(Source.PUMP);
+                                .source(Source.USER);
                         treatmentsPlugin.addToHistoryTempBasal(tempBasal);
                     }
                     break;
@@ -481,7 +481,7 @@ class HistoryProcessor extends AsyncTask<OmniCoreResult,Void,Void>
                         TemporaryBasal tempStop = new TemporaryBasal()
                                 .date(historicalResult.ResultDate)
                                 .pumpId(historicalResult.ResultId)
-                                .source(Source.PUMP);
+                                .source(Source.USER);
 
                         treatmentsPlugin.addToHistoryTempBasal(tempStop);
                     }
@@ -499,7 +499,7 @@ class HistoryProcessor extends AsyncTask<OmniCoreResult,Void,Void>
                     .absolute(0)
                     .duration(24 * 60 * 14)
                     .pumpId(historicalResult.ResultId)
-                    .source(Source.PUMP);
+                    .source(Source.USER);
 
             if (!_podWasRunning)
             {
