@@ -257,7 +257,7 @@ public class OmnipodPlugin extends PluginBase implements PumpInterface {
 //                MainApp.bus().post(new EventDismissNotification(Notification.PROFILE_SET_OK));
                 RxBus.INSTANCE.send(new EventDismissNotification(Notification.PROFILE_SET_OK));
 //                MainApp.bus().post(new EventDismissNotification(Notification.PROFILE_SET_FAILED));
-                RxBus.INSTANCE.send((new EventDismissNotification(Notification.PROFILE_SET_FAILED));
+                RxBus.INSTANCE.send(new EventDismissNotification(Notification.PROFILE_SET_FAILED));
                 Notification notification = new Notification(Notification.PROFILE_SET_FAILED, "Basal profile not updated", Notification.NORMAL, 60);
 //                MainApp.bus().post(new EventNewNotification(notification));
                 RxBus.INSTANCE.send(new EventNewNotification(notification));
