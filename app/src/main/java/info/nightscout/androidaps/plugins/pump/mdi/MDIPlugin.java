@@ -71,8 +71,8 @@ public class MDIPlugin extends PluginBase implements PumpInterface {
         return result;
     }
 
-    @Override
-    public boolean isBotheredByConstantConnectionRequests() { return false; }
+//    @Override
+//    public boolean isBotheredByConstantConnectionRequests() { return false; }
 
     @Override
     public boolean isInitialized() {

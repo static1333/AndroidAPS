@@ -49,6 +49,7 @@ import info.nightscout.androidaps.plugins.pump.omnipod.api.rest.OmniCoreRequest;
 import info.nightscout.androidaps.plugins.pump.omnipod.api.rest.OmniCoreStatusRequest;
 import info.nightscout.androidaps.plugins.pump.omnipod.api.rest.OmniCoreTempBasalRequest;
 import info.nightscout.androidaps.logging.L;
+import info.nightscout.androidaps.plugins.bus.RxBus;
 import info.nightscout.androidaps.plugins.pump.omnipod.events.EventOmnipodUpdateGui;
 import info.nightscout.androidaps.plugins.treatments.Treatment;
 import info.nightscout.androidaps.plugins.treatments.TreatmentsPlugin;
@@ -144,10 +145,12 @@ public class OmnipodPdm {
 
             if (!_connected || !_connectionStatusKnown)
             {
-                MainApp.bus().post(new EventDismissNotification(Notification.OMNIPY_CONNECTION_STATUS));
+//                MainApp.bus().post(new EventDismissNotification(Notification.OMNIPY_CONNECTION_STATUS));
+                RxBus.INSTANCE.send(new EventDismissNotification(Notification.OMNIPY_CONNECTION_STATUS));
                 Notification notification = new Notification(Notification.OMNIPY_CONNECTION_STATUS,
                         MainApp.gs(R.string.omnicore_connected), Notification.INFO, 1);
-                MainApp.bus().post(new EventNewNotification(notification));
+//                MainApp.bus().post(new EventNewNotification(notification));
+                RxBus.INSTANCE.send(new EventNewNotification(notification));
             }
             _connectionStatusKnown = true;
             _connected = true;
@@ -159,16 +162,20 @@ public class OmnipodPdm {
 
             if (_lastResult.PodRunning && !result.PodRunning)
             {
-                MainApp.bus().post(new EventDismissNotification(Notification.OMNIPY_POD_CHANGE));
+//                MainApp.bus().post(new EventDismissNotification(Notification.OMNIPY_POD_CHANGE));
+                RxBus.INSTANCE.send(new EventDismissNotification(Notification.OMNIPY_POD_CHANGE));
                 Notification notification = new Notification(Notification.OMNIPY_POD_CHANGE,
                         String.format(MainApp.gs(R.string.omnipod_pod_state_POD_IDs_has_been_removed), _lastResult.PodId), Notification.NORMAL);       //"Pod with Lot %d and Serial %d has been removed."
-                MainApp.bus().post(new EventNewNotification(notification));
+//                MainApp.bus().post(new EventNewNotification(notification));
+                RxBus.INSTANCE.send(new EventNewNotification(notification));
             }
             else if (!_lastResult.PodRunning && result.PodRunning)
             {
-                MainApp.bus().post(new EventDismissNotification(Notification.OMNIPY_POD_STATUS));
+//                MainApp.bus().post(new EventDismissNotification(Notification.OMNIPY_POD_STATUS));
+                RxBus.INSTANCE.send(new EventDismissNotification(Notification.OMNIPY_POD_STATUS));
                 Notification notification = new Notification(Notification.OMNIPY_POD_STATUS, MainApp.gs(R.string.omnipod_pod_state_Pod_is_activated_and_running), Notification.INFO);      //"Pod is activated and running"
-                MainApp.bus().post(new EventNewNotification(notification));
+//                MainApp.bus().post(new EventNewNotification(notification));
+                RxBus.INSTANCE.send(new EventNewNotification(notification));
             }
             SP.putString(R.string.key_omnicore_last_result, _lastResult.asJson());
             _lastResult = result;
@@ -177,16 +184,19 @@ public class OmnipodPdm {
         {
             if (_connected || !_connectionStatusKnown)
             {
-                MainApp.bus().post(new EventDismissNotification(Notification.OMNIPY_CONNECTION_STATUS));
+//                MainApp.bus().post(new EventDismissNotification(Notification.OMNIPY_CONNECTION_STATUS));
+                RxBus.INSTANCE.send(new EventDismissNotification(Notification.OMNIPY_CONNECTION_STATUS));
                 Notification notification = new Notification(Notification.OMNIPY_CONNECTION_STATUS,
                         MainApp.gs(R.string.omnicore_not_connected), Notification.NORMAL, 60);
-                MainApp.bus().post(new EventNewNotification(notification));
+//                MainApp.bus().post(new EventNewNotification(notification));
+                RxBus.INSTANCE.send(new EventNewNotification(notification));
             }
             _connectionStatusKnown = true;
             _connected = false;
         }
 
-        MainApp.bus().post(new EventOmnipodUpdateGui());
+//        MainApp.bus().post(new EventOmnipodUpdateGui());
+        RxBus.INSTANCE.send(new EventOmnipodUpdateGui());
 
         long delay = 60000;
         if (_connected) {

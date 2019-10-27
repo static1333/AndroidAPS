@@ -110,8 +110,8 @@ public class DanaRv2Plugin extends AbstractDanaRPlugin {
         return false;
     }
 
-    @Override
-    public boolean isBotheredByConstantConnectionRequests() { return false; }
+  //  @Override
+  //  public boolean isBotheredByConstantConnectionRequests() { return false; }
 
     @Override
     public boolean isInitialized() {
