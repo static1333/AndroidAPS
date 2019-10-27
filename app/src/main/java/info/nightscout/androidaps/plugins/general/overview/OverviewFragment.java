@@ -1195,14 +1195,14 @@ public class OverviewFragment extends Fragment implements View.OnClickListener, 
             }
         }
 
-        if (omnicoreButton != null) {
+     /*   if (omnicoreButton != null) {
             if ((ConfigBuilderPlugin.getPlugin().getActivePump().getPumpDescription().pumpType == PumpType.Omnipy_Omnipod) && SP.getBoolean(R.string.key_show_omnicore_button, false)) {
                 omnicoreButton.setVisibility(View.VISIBLE);
             } else {
                 omnicoreButton.setVisibility(View.GONE);
             }
         }
-
+*/
         final TemporaryBasal activeTemp = TreatmentsPlugin.getPlugin().getTempBasalFromHistory(System.currentTimeMillis());
         String basalText = "";
         if (shorttextmode) {

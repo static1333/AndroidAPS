@@ -17,7 +17,7 @@ import info.nightscout.androidaps.plugins.pump.common.defs.PumpType;
  */
 public interface PumpInterface {
 
-    boolean isBotheredByConstantConnectionRequests(); // true if pump wants to handle connection on its own
+  //  boolean isBotheredByConstantConnectionRequests(); // true if pump wants to handle connection on its own
     boolean isInitialized(); // true if pump status has been read and is ready to accept commands
 
     boolean isSuspended();   // true if suspended (not delivering insulin)
