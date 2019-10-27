@@ -1006,7 +1006,6 @@
     <string name="Searching_for_omnipy_on_local_network">Searching for omnipy on local network..</string>
     <string name="Trying_to_connect_to_omnipy_at_address">Trying to connect to omnipy at address:</string>
 
-    <string name="loop_openmode_min_change_summary">Open Loop가 %단위로 이 값보다 변화가 더 클 경우에만 새 변경 요청을 팝업합니다. 기본값은 20 %입니다</string>
     <string name="pairfirst">펌프를 폰과 동기화 하십시오</string>
     <string name="searching_for_devices">장치 검색중...</string>
     <string name="please_wait">잠시 기다려 주세요...</string>
