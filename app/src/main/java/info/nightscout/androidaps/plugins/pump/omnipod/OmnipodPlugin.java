@@ -3,7 +3,7 @@ package info.nightscout.androidaps.plugins.pump.omnipod;
 import android.content.Context;
 import android.os.SystemClock;
 
-import com.squareup.otto.Subscribe;
+//import com.squareup.otto.Subscribe;
 
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -17,7 +17,7 @@ import info.nightscout.androidaps.data.DetailedBolusInfo;
 import info.nightscout.androidaps.data.Profile;
 import info.nightscout.androidaps.data.PumpEnactResult;
 import info.nightscout.androidaps.db.ExtendedBolus;
-import info.nightscout.androidaps.db.Source;
+//import info.nightscout.androidaps.db.Source;
 import info.nightscout.androidaps.db.TemporaryBasal;
 import info.nightscout.androidaps.events.EventNetworkChange;
 import info.nightscout.androidaps.interfaces.Constraint;
