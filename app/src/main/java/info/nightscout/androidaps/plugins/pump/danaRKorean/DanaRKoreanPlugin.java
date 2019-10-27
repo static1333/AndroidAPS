@@ -124,8 +124,8 @@ public class DanaRKoreanPlugin extends AbstractDanaRPlugin {
         return useExtendedBoluses;
     }
 
-    @Override
-    public boolean isBotheredByConstantConnectionRequests() { return false; }
+//    @Override
+//    public boolean isBotheredByConstantConnectionRequests() { return false; }
 
     @Override
     public boolean isInitialized() {
