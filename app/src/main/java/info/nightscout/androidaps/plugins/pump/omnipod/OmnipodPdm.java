@@ -528,7 +528,7 @@ class HistoryProcessor extends AsyncTask<OmniCoreResult,Void,Void>
                         TemporaryBasal tempBasalCancel = new TemporaryBasal()
                                 .date(historicalResult.ResultDate)
                                 .pumpId(historicalResult.ResultId)
-                                .source(Source.PUMP);
+                                .source(Source.USER);
                         treatmentsPlugin.addToHistoryTempBasal(tempBasalCancel);
                     }
                 }
